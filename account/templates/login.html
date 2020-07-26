@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>login</title>
+</head>
+<body>
+
+    {% extends "theme.html" %}
+    {% block blockname %}
+        <h2 align="center">登录页面</h2>
+        <br>
+        <form method="POST" action="{% url '登录页面' %}" align="center">
+        {% csrf_token %}
+        用户名 <br>
+            <input type="text" name="用户名">
+            <br>
+         密码 <br>
+            <input type="password" name="密码">
+            <br>
+            {{ 登录错误 }}
+            <br>
+            <input type="submit" value="确认提交">
+
+        </form>
+
+    {% endblock blockname %}
+
+</body>
+</html>

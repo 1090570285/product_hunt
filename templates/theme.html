@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>theme</title>
+</head>
+<body>
+    {% load static %}
+      <div>  <img src=" {% static "logo_p.png" %}  " alt="logo" style="width: 30px">
+        <h1 style="display: inline-block">Produce Hunt</h1>
+          <div style="float: right;font-size: 32px;margin: 24px 86px" >
+              {% if user.is_authenticated %}
+                  <a href="Javascript:{document.getElementById('退出').submit()}" style="text-decoration: none">logout</a>
+                  <form id="退出" method="POST" action="{% url '退出页面' %}">
+                  {% csrf_token %}
+                  </form>
+              {% else %}
+              <a href="{% url '登录页面' %}" style="text-decoration: none;padding-right: 25px">login </a>
+              <a href="{% url '注册页面' %}" style="text-decoration: none">sign up</a>
+              {% endif %}
+
+
+          </div>
+          <hr style="height:1px;"/>
+      </div>
+{#    <h1>网页的主体样式</h1>#}
+    {% block blockname %}
+    {% endblock blockname %}
+    <br><br><br><br><br><br>
+    <h3>联系我们</h3>
+{#    <h1>网站的主体样式</h1>#}
+</body>
+</html>
